@@ -13,8 +13,7 @@ import org.elasticsearch.common.unit.TimeValue;
 public class DeleteIndexTest {
     public static void main(String[] args) throws Exception {
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(
-                new HttpHost("10.21.89.52", 9200, "http"),
-                new HttpHost("10.21.89.52", 9201, "http")
+                new HttpHost("10.21.89.52", 9200, "http")
         ));
 
         DeleteIndexRequest request = new DeleteIndexRequest("twitter");
