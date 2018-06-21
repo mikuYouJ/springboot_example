@@ -23,10 +23,10 @@ public class SearchApi {
         ));
 
 
-        SearchRequest searchRequest = new SearchRequest("logstash-nginx-access-2018.06.14");
+        SearchRequest searchRequest = new SearchRequest("logstash-nginx-access-2018.06.06");
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         searchSourceBuilder.from(0);
-        searchSourceBuilder.size(100);
+        searchSourceBuilder.size(5);
         searchSourceBuilder.query(QueryBuilders.matchAllQuery());
         searchRequest.source(searchSourceBuilder);
         SearchResponse searchResponse = client.search(searchRequest);
