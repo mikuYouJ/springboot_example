@@ -37,7 +37,7 @@ public class LinkClient {
         return restHighLevelClient;
     }
 
-    public void destroy() throws Exception {
+    public void destroy() {
         try {
             if (restHighLevelClient != null) {
                 restHighLevelClient.close();
