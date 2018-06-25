@@ -2,6 +2,7 @@ package com.moonsun;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Spring Boot 应用启动类
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 // Spring Boot 应用的标识
 @SpringBootApplication
+@ComponentScan
 public class Application {
 
     public static void main(String[] args) {

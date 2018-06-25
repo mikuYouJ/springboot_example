@@ -1,9 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html>
+<meta>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ></meta>
+    <meta name="keywords" content="jquery,ui,easy,easyui,web" ></meta>
+    <meta name="description" content="easyui help you build your web page easily!" ></meta>
+    <title>jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/gray/easyui.css"></link>
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/icon.css"></link>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="http://www.jeasyui.net/Public/js/easyui/jquery.easyui.min.js"></script>
+    <script>
+        $(function(){
+            var pager = $('#tt').datagrid('getPager');	// get the pager of datagrid
+            pager.pagination({
+                showPageList:false,
+                buttons:[{
+                    iconCls:'icon-search',
+                    handler:function(){
+                        alert('search');
+                    }
+                },{
+                    iconCls:'icon-add',
+                    handler:function(){
+                        alert('add');
+                    }
+                },{
+                    iconCls:'icon-edit',
+                    handler:function(){
+                        alert('edit');
+                    }
+                }],
+                onBeforeRefresh:function(){
+                    alert('before refresh');
+                    return true;
+                }
+            });
+        });
+    </script>
 </head>
 <body>
+<h1>DataGrid</h1>
+
+<table id="tt" title="Load Data" class="easyui-datagrid" style="width:550px;height:250px"
+       url="data/datagrid_data.json"
+       iconCls="icon-save" pagination="true">
+    <thead>
+    <tr>
+        <th field="itemid" width="80">Item ID</th>
+        <th field="productid" width="80">Product ID</th>
+        <th field="listprice" width="80" align="right">List Price</th>
+        <th field="unitcost" width="80" align="right">Unit Cost</th>
+        <th field="attr1" width="100">Attribute</th>
+        <th field="status" width="60" align="center">Stauts</th>
+    </tr>
+    </thead>
+</table>
 </body>
 </html>
