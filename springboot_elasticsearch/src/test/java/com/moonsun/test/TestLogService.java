@@ -27,12 +27,12 @@ public class TestLogService {
     @Test
     public void testQuery(){
         Map<String,Object> params = new HashMap<String,Object>();
-         params.put("index","nginx-access");
+         params.put("index","yth");
          params.put("content","szAirlinesWebSystem");
          params.put("page",1);
          params.put("pageSize",10);
-         params.put("beginTime","2018-06-25 00:00:00");
-         params.put("endTime","2018-06-25 23:00:00");
-        logService.queryLogs(params);
+         params.put("beginTime","2018-07-02 00:00:00");
+         params.put("endTime","2018-07-03 23:00:00");
+         logService.queryLogs(params);
     }
 }
