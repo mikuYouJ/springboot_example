@@ -92,11 +92,19 @@ public class LogServiceImpl implements ILogService {
         String content = (String) params.get("content"); //查询内容
         String beginTime = (String) params.get("beginTime");//开始时间 yyyy-mm-dd hh:mm:ss
         String endTime = (String) params.get("endTime");//结束时间
-        int page = (int) params.get("page");//当前页码
-        int pageSize = (int) params.get("pageSize");//页数
+        Integer page = (Integer) params.get("page");//当前页码
+        Integer pageSize = (Integer) params.get("pageSize");//页数
 
         //处理索引
         String[] indexs = this.indexs(index,beginTime,endTime);
+
+
+        if(indexs.length == 0){
+            List<JSONObject> sources = new ArrayList<>();
+            result.put("total",0);
+            result.put("row",sources);
+            return result;
+        }
 
         logger.info("查询参数:"+params.toString());
         BoolQueryBuilder boolQueryBuilder= QueryBuilders.boolQuery();

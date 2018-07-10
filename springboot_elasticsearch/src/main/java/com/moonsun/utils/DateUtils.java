@@ -110,6 +110,7 @@ public class DateUtils {
     public static String plusDay(int num,Date newDate)  {
         SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
         Calendar ca = Calendar.getInstance();
+        ca.setTime(newDate);
         ca.add(Calendar.DATE, num);// num为增加的天数，可以改变的
         newDate = ca.getTime();
         String enddate = format.format(newDate);

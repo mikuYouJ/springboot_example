@@ -1,11 +1,9 @@
 package com.moonsun.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.moonsun.service.ILogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,26 +21,18 @@ public class LogSearchController {
 
     /**
      * 查询日志
-     * @param index
-     * @param content
-     * @param beginTime
-     * @param endTime
-     * @param page
-     * @param pageSize
      * @return
      */
-    @RequestMapping("/api/queryLogs")
-    public Map<String,Object> queryLogs(@RequestParam("index") String index, @RequestParam("content") String content,
-                                        @RequestParam("beginTime") String beginTime,@RequestParam("endTime") String endTime,
-                                        @RequestParam("page")int page,@RequestParam("pageSize")int pageSize
-                                        ){
+    @RequestMapping(value  = "/api/queryLogs",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public Map<String,Object> queryLogs(@RequestBody JSONObject jsonParam){
         Map<String,Object> result = new HashMap<String,Object>();
-        result.put("index",index);
-        result.put("content",content);
-        result.put("beginTime",beginTime);
-        result.put("endTime",endTime);
-        result.put("page",page);
-        result.put("pageSize",pageSize);
+        System.out.println(jsonParam);
+        result.put("index",jsonParam.get("index"));
+        result.put("content",jsonParam.get("content"));
+        result.put("beginTime",jsonParam.get("beginTime"));
+        result.put("endTime",jsonParam.get("endTime"));
+        result.put("page",jsonParam.get("page"));
+        result.put("pageSize",jsonParam.get("pageSize"));
         Map<String,Object> data = logService.queryLogs(result);
         return data;
     }
