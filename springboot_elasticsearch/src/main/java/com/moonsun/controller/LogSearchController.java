@@ -27,6 +27,12 @@ public class LogSearchController {
     @RequestMapping(value  = "/api/getIndexs",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public Map<String,Object> getIndexs(){
         Map<String,Object> result = new HashMap<String,Object>();
+        List<Index> indexs = new ArrayList<>();
+        Index yth = new Index();
+        yth.setKey("yth");
+        yth.setValue("一体化服务平台");
+        indexs.add(yth);
+        result.put("indexs",indexs);
         return result;
     }
 
