@@ -2,12 +2,11 @@ package com.moonsun.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.moonsun.service.ILogService;
+import com.moonsun.vo.Index;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by 82610 on 2018/6/13.
@@ -18,6 +17,20 @@ public class LogSearchController {
 
     @Autowired
     private ILogService logService;
+
+
+
+    /**
+     * 获取索引
+     * @return
+     */
+    @RequestMapping(value  = "/api/getIndexs",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public Map<String,Object> getIndexs(){
+        Map<String,Object> result = new HashMap<String,Object>();
+        return result;
+    }
+
+
 
     /**
      * 查询日志
